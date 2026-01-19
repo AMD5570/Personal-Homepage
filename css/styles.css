@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --primary-bg-color: hsla(0, 0%, 0%, 0.92);
+    --primary-txt-color: hsla(0, 0%, 100%, 0.9);
+    --h1-color: hsla(226, 62%, 85%, 1);
+    --bold-color: hsla(226, 62%, 85%, 0.9);
+    --card-bg-color: hsla(226, 62%, 85%, 0.6);
+    --card-border-hover: hsla(226, 62%, 85%, 0.9);
+    --project-border: hsla(0, 0%, 100%, 0.2);
+}
+
+html {
+    background: linear-gradient(125deg, var(--primary-bg-color), hsla(0, 0%, 0%, 0.8));
+    color: var(--primary-txt-color);
+    font-family: "Figtree", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.college-major {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+}
+
+main {
+    margin: 0 400px 0 400px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: var(--h1-color);
+    font-size: 4rem;
+    margin: 0 0 0 0;
+}
+
+h2 {
+    color: var(--h1-color);
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+main h2 {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+.major, .school {
+    opacity: 0.9;
+    margin: 0;
+}
+
+b {
+    color: var(--bold-color);
+    font-size: 1.4rem;
+}
+
+hr {
+    height: 2px;
+    border: none;
+    background-color: var(--primary-txt-color);
+    opacity: 0.2;
+}
+
+section {
+    padding: 60px 20px 60px 20px;
+}
+
+.card-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.language-card {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(125deg, var(--card-bg-color), hsla(226, 62%, 85%, 0.25));
+    border-radius: 20px;
+    min-width: 150px;
+    transition: transform 0.3s;
+    opacity: 0.9;
+}
+
+.language-card img {
+    filter: brightness(400%);
+    width: 75px;
+}
+
+.language-card:hover {
+    transform: scale(1.05);
+    background-color: var(--bold-color);
+    opacity: 1;
+}
+
+.project-lang, .company {
+    font-size: 0.9rem;
+    background-color: var(--card-bg-color);
+    margin-right: 10px;
+    opacity: 0.8;
+    border-radius: 50px;
+    padding: 5px 20px;
+    transition: border 0.3s;
+}
+
+.projects-card {
+    border: 3px dashed var(--project-border);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.projects-card h3, .experience-card h3 {
+    font-size: 1.5rem;
+}
+
+.project-date, .experience-date {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    float: right;
+}
+
+.project-and-date, .experience-and-date {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-card {
+    border: 3px ridge var(--project-border);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--primary-txt-color);
+}
+
+footer {
+    padding: 20px 0 0 50px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.github-icon {
+    transition: transform 0.3s;
+}
+
+.github-icon:hover {
+    transform: scale(1.1);
+}
+
+.sticky {
+    color: hsla(0, 0%, 0%, 0.7);
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: hsla(226, 62%, 85%, 1);
+    border-bottom: 5px solid hsla(227, 24%, 69%, 1);
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.sticky a {
+    color: hsla(0, 0%, 0%, 0.7);
+    text-decoration: none;
+}
+
+.sticky a h3 {
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.sticky a h3:hover {
+    color: hsla(0, 0%, 0%, 1);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: -50px;
+    flex-wrap: wrap;
+}
+
+.contact-info img {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: var(--primary-txt-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--h1-color);
+    background-color: rgba(226, 62%, 85%, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+    main {
+        margin: 0 50px 0 50px;
+    }
+
+    .language-card {
+        flex: 1 1 calc(25% - 15px);
+        min-width: 130px;
+    }
+
+    .sticky {
+        padding: 10px 15px 10px 15px;
+    }
+
+    .sticky a h3 {
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 25px;
+    }
+
+    .college-major {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    main {
+        margin: 0 20px 0 20px;
+    }
+
+    .sticky a h3 {
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .major, .school {
+        font-size: 0.9rem;
+    }
+
+    p {
+        font-size: 1.05rem;
+    }
+
+    section {
+        padding: 35px 15px 35px 15px;
+    }
+
+    .card-container {
+        gap: 12px;
+        justify-content: space-between;
+    }
+
+    .language-card {
+        flex: 1 1 calc(33.333% - 12px);
+        min-width: 100px;
+        padding: 12px;
+    }
+
+    .language-card img {
+        width: 50px;
+    }
+
+    .language-card h3 {
+        font-size: 0.85rem;
+    }
+
+    .projects-card h3, .experience-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .contact-info {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: -10px;
+    }
+
+    .contact-info img {
+        width: 22px;
+    }
+
+    .contact-info h4 {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 15px 20px 15px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Tablet: 640px and below */
+@media (max-width: 640px) {
+    header {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    main {
+        margin: 0 15px 0 15px;
+    }
+
+    .sticky {
+        padding: 8px 10px 8px 10px;
+    }
+
+    .sticky a h3 {
+        font-size: 0.7rem;
+    }
+
+    .language-card {
+        flex: 1 1 calc(50% - 12px);
+        min-width: 80px;
+    }
+
+    .language-card img {
+        width: 45px;
+    }
+
+    .project-and-date, .experience-and-date {
+        flex-direction: column;
+    }
+
+    .project-date, .experience-date {
+        float: none;
+        margin-top: 5px;
+    }
+
+    .contact-info {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: -10px;
+    }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    h3 {
+        font-size: 0.9rem;
+    }
+
+    main h2 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    b {
+        font-size: 1rem;
+    }
+
+    main {
+        margin: 0 12px 0 12px;
+    }
+
+    .sticky {
+        padding: 6px 8px 6px 8px;
+        gap: 3px;
+    }
+
+    .sticky a h3 {
+        font-size: 0.65rem;
+        padding: 0 2px;
+    }
+
+    section {
+        padding: 20px 10px 20px 10px;
+    }
+
+    .card-container {
+        gap: 8px;
+    }
+
+    .language-card {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 70px;
+        padding: 10px;
+    }
+
+    .language-card img {
+        width: 40px;
+    }
+
+    .language-card h3 {
+        font-size: 0.8rem;
+    }
+
+    .projects-card, .experience-card {
+        padding: 12px;
+        border-radius: 15px;
+    }
+
+    .projects-card h3, .experience-card h3 {
+        font-size: 1.1rem;
+        margin: 0 0 10px 0;
+    }
+
+    .project-lang, .company {
+        font-size: 0.8rem;
+        padding: 3px 12px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+
+    .contact-info {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 0;
+        justify-content: center;
+    }
+
+    .contact-info img {
+        width: 18px;
+    }
+
+    .contact-info h4 {
+        margin: 0;
+        font-size: 0.85rem;
+    }
+
+    .contact-info a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 6px 10px;
+        border-radius: 6px;
+    }
+
+    footer {
+        padding: 10px 15px 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    hr {
+        margin: 10px 0;
+    }
+}
