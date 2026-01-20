@@ -249,6 +249,38 @@ footer {
     color: #F76902;
 }
 
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.ticker p {
+    font-size: 1.4rem;
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.ticker p {
+  font-weight: 500;
+}
+
+/* ticker mover */
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
 /* Media Queries for Responsive Design */
 
 /* Tablet: 1024px and below */
@@ -272,6 +304,10 @@ footer {
 
     .sticky a h3 {
         font-size: 0.95rem;
+    }
+
+    .ticker p {
+        font-size: 1.2rem;
     }
 }
 
@@ -352,6 +388,10 @@ footer {
 
     .contact-info h4 {
         font-size: 1rem;
+    }
+
+    .ticker p {
+        font-size: 1.1rem;
     }
 
     footer {
@@ -448,13 +488,7 @@ footer {
     }
 
     .sticky {
-        padding: 6px 8px 6px 8px;
-        gap: 3px;
-    }
-
-    .sticky a h3 {
-        font-size: 0.65rem;
-        padding: 0 2px;
+        display: none;
     }
 
     section {
@@ -529,4 +563,19 @@ footer {
     hr {
         margin: 10px 0;
     }
+
+    .ticker p {
+        font-size: 0.95rem;
+    }
+
+    .ticker-track {
+        gap: 2rem;
+    }
+}
+
+/* important for reduced motion (accessibility!) */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
 }
