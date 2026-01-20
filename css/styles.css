@@ -271,6 +271,10 @@ footer {
   font-weight: 500;
 }
 
+.greeting {
+    font-size: 2.5rem;
+}
+
 /* ticker mover */
 @keyframes ticker-scroll {
   from {
@@ -572,6 +576,10 @@ footer {
     .ticker-track {
         gap: 2rem;
     }
+
+    .greeting {
+        font-size: 1.8rem;
+}
 }
 
 /* important for reduced motion (accessibility!) */
