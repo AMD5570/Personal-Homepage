@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-    --primary-bg-color: hsla(0, 0%, 0%, 0.92);
-    --primary-txt-color: hsla(0, 0%, 100%, 0.9);
-    --h1-color: hsla(226, 62%, 85%, 1);
-    --bold-color: hsla(226, 62%, 85%, 0.9);
-    --card-bg-color: hsla(226, 62%, 85%, 0.6);
-    --card-border-hover: hsla(226, 62%, 85%, 0.9);
-    --project-border: hsla(0, 0%, 100%, 0.2);
+    --primary-bg-color: hsl(220, 25%, 8%);
+    --primary-txt-color: hsl(220, 30%, 96%);
+    --h1-color: hsl(220, 100%, 86%);
+    --bold-color: hsl(210, 100%, 75%);
+    --card-bg-color: hsla(220, 100%, 75%, 0.16);
+    --card-border-hover: hsl(210, 100%, 75%);
+    --project-border: hsla(220, 100%, 85%, 0.35);
+    --accent-1: hsl(210, 100%, 72%);
+    --accent-2: hsl(188, 90%, 64%);
+    --accent-3: hsl(276, 90%, 74%);
 }
 
 html {
-    background: linear-gradient(125deg, var(--primary-bg-color), rgba(0, 0, 0, 0.8));
+    background: radial-gradient(circle at top, rgba(85, 120, 255, 0.28), transparent 30%),
+        linear-gradient(135deg, hsl(220, 27%, 8%), hsl(222, 35%, 12%), hsl(230, 20%, 10%));
     color: var(--primary-txt-color);
     font-family: "Figtree", sans-serif;
     scroll-behavior: smooth;
@@ -21,13 +25,47 @@ html {
 body {
     margin: 0;
     padding: 0;
+    opacity: 0;
+    animation: fadeInPage 0.9s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 header {
-    padding: 50px;
+    padding: 40px 50px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 30px;
+}
+
+header .name {
+    letter-spacing: -0.05em;
+}
+
+header .college-major {
+    min-width: 360px;
+    align-items: flex-end;
 }
 
 .college-major {
@@ -48,12 +86,14 @@ h1 {
     color: var(--h1-color);
     font-size: 4rem;
     margin: 0 0 0 0;
+    text-shadow: 0 0 10px rgba(125, 168, 255, 0.2);
 }
 
 h2 {
     color: var(--h1-color);
     font-size: 2.2rem;
     margin: 0;
+    text-shadow: 0 0 8px rgba(125, 168, 255, 0.14);
 }
 
 main h2 {
@@ -108,32 +148,43 @@ section {
 .language-card {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(125deg, var(--card-bg-color), hsla(226, 62%, 85%, 0.25));
+    background: linear-gradient(135deg, rgba(120, 160, 255, 0.18), rgba(116, 214, 255, 0.08));
+    border: 1px solid rgba(154, 188, 255, 0.25);
     border-radius: 20px;
     min-width: 150px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     opacity: 0.9;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 24px rgba(0, 0, 0, 0.14);
 }
 
 .language-card img {
-    filter: brightness(400%);
+    filter: brightness(0) invert(1) saturate(0);
     width: 75px;
+    opacity: 0.95;
 }
 
 .language-card:hover {
-    transform: scale(1.05);
-    background-color: var(--bold-color);
+    transform: translateY(-4px) scale(1.03);
+    background: linear-gradient(135deg, rgba(123, 152, 255, 0.22), rgba(125, 214, 255, 0.12));
+    border-color: rgba(180, 210, 255, 0.65);
+    box-shadow: 0 12px 22px rgba(55, 120, 255, 0.12);
     opacity: 1;
 }
 
 .project-lang, .company {
     font-size: 0.9rem;
-    background-color: var(--card-bg-color);
+    background: linear-gradient(135deg, rgba(130, 170, 255, 0.28), rgba(100, 222, 255, 0.12));
+    border: 1px solid rgba(160, 200, 255, 0.4);
     margin-right: 10px;
-    opacity: 0.85;
+    opacity: 0.95;
     border-radius: 50px;
     padding: 5px 20px;
-    transition: border 0.3s;
+    transition: border 0.3s, transform 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.project-lang:hover, .company:hover {
+    transform: translateY(-1px);
 }
 
 .projects-card {
@@ -141,30 +192,62 @@ section {
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 30px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.015), rgba(123, 155, 255, 0.04));
+}
+
+.project-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.9fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.project-copy {
+    min-width: 0;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 420px;
+    justify-self: end;
+    border-radius: 16px;
+    border: 1px solid rgba(180, 210, 255, 0.3);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+    display: block;
 }
 
 .projects-card h3, .experience-card h3 {
     font-size: 1.5rem;
+    color: hsl(214, 100%, 88%);
 }
 
 .project-date, .experience-date {
     font-size: 0.9rem;
     opacity: 0.7;
-    float: right;
+    margin-left: auto;
+    white-space: nowrap;
+    text-align: right;
 }
 
 .project-and-date, .experience-and-date {
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.project-and-date h3, .experience-and-date h3 {
+    margin-right: auto;
 }
 
 .experience-card {
-    border: 4px solid var(--project-border);
-    background: linear-gradient(125deg, hsla(226, 62%, 85%, 0.4), hsla(226, 62%, 85%, 0.1));
+    border: 4px solid rgba(150, 190, 255, 0.45);
+    background: linear-gradient(135deg, rgba(126, 155, 255, 0.16), rgba(74, 198, 255, 0.08));
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 28px rgba(0, 0, 0, 0.12);
 }
 
 footer {
@@ -189,21 +272,30 @@ footer {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: hsla(226, 62%, 85%, 1);
-    border-bottom: 5px solid hsla(227, 24%, 69%, 1);
+    background: hsla(226, 62%, 85%, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 3px solid hsla(227, 24%, 69%, 0.8);
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
 }
 
 .sticky a {
     color: hsla(0, 0%, 0%, 0.7);
     text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.sticky a:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .sticky a h3 {
     margin: 0;
     cursor: pointer;
     transition: color 0.3s;
+    line-height: 1.4;
 }
 
 .sticky a h3:hover {
@@ -215,13 +307,15 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin-top: -50px;
+    margin-top: -10px;
     flex-wrap: wrap;
+    padding: 8px 0 0;
 }
 
 .contact-info img {
     width: 30px;
     height: 30px;
+    opacity: 0.9;
 }
 
 .contact-info h4 {
@@ -235,19 +329,24 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 9px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s;
 }
 
 .contact-info a:hover {
     color: var(--h1-color);
-    background-color: rgba(226, 62%, 85%, 0.2);
+    background: linear-gradient(135deg, rgba(120, 155, 255, 0.14), rgba(115, 220, 255, 0.08));
+    border-color: rgba(170, 210, 255, 0.38);
     transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(77, 130, 255, 0.12);
 }
 
 .school:hover, .rit:hover {
-    color: #F76902;
+    color: hsl(32, 96%, 58%);
+    text-shadow: 0 0 8px rgba(247, 105, 2, 0.18);
 }
 
 .ticker {
@@ -442,6 +541,15 @@ footer {
 
     .project-and-date, .experience-and-date {
         flex-direction: column;
+    }
+
+    .project-row {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        justify-self: stretch;
+        max-width: none;
     }
 
     .project-date, .experience-date {
